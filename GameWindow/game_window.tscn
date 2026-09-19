@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ng67aesipwln"]
+
+[ext_resource type="Texture2D" uid="uid://cfxu81uyx8qc0" path="res://icon.svg" id="1_jgvt5"]
+
+[node name="GameWindow" type="Control" unique_id=1612162592]
+process_mode = 3
+editor_description = "This is the root window the game is displayed in.
+It should have no gameplay effect on anything below it."
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Control" parent="." unique_id=10021070]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=179809648]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jgvt5")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1411807577]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="AspectRatioContainer" unique_id=2059815977]
+process_mode = 1
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="AspectRatioContainer/SubViewportContainer" unique_id=1711726807]
+disable_3d = true
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(1280, 719)
+size_2d_override = Vector2i(1280, 720)
+size_2d_override_stretch = true
