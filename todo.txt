@@ -1,6 +1,7 @@
 SETTINGS
 stores and manages various user options, not related to game settings like difficulty.
 
+
 GAME WINDOW
 the root of where the game is displayed, it shows the game in a central window with a background to fill the blackspace.
 -- Should have options to change how the window is scaled.
