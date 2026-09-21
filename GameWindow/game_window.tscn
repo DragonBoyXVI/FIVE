@@ -46,8 +46,10 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="AspectRatioContainer/SubViewportContainer" unique_id=1711726807]
 disable_3d = true
+handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(1280, 719)
 size_2d_override = Vector2i(1280, 720)
 size_2d_override_stretch = true
+render_target_update_mode = 4

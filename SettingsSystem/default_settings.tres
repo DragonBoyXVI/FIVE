@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SettingsData" format=3 uid="uid://b1io746fysx3c"]
+
+[ext_resource type="Script" uid="uid://imlvtm2kflb7" path="res://SettingsSystem/SettingsData.cs" id="1_ifore"]
+
+[resource]
+script = ExtResource("1_ifore")
+metadata/_custom_type_script = "uid://imlvtm2kflb7"
