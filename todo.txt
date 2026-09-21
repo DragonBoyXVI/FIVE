@@ -1,0 +1,12 @@
+SETTINGS
+stores and manages various user options, not related to game settings like difficulty.
+
+GAME WINDOW
+the root of where the game is displayed, it shows the game in a central window with a background to fill the blackspace.
+-- Should have options to change how the window is scaled.
+-- Background should be dynamic and able to react to ingame events.
+
+
+VIEW SYSTEM
+Overworld is the bottom most layer?
+Additional layers can appear on top, like menues, dialouge, or combat, pausing all views below it?
