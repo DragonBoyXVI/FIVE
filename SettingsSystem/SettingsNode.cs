@@ -12,8 +12,8 @@ public partial class SettingsNode : Node, IAutoload<SettingsNode>
 {
     private const string SaveSettingsFilePath = "user://settings.json";
     
-    public static SettingsNode Instance => (instance is null) ? throw new System.Exception("Null autoload") : instance;
-    private static SettingsNode? instance;
+    public static SettingsNode Instance => instance;
+    private static SettingsNode instance;
     
     [Signal]
     public delegate void SettingsChangedEventHandler( SettingsData settingsData );
@@ -47,7 +47,7 @@ public partial class SettingsNode : Node, IAutoload<SettingsNode>
         file.Close();
         file.Dispose();
         
-        SettingsData? loadedSettings = JsonSerializer.Deserialize<SettingsData>( fileText );
+        SettingsData loadedSettings = JsonSerializer.Deserialize<SettingsData>( fileText );
         if ( loadedSettings is null )
         {
             GD.PushError( $"Settings loaded but could not be parsed: {filePath}" );
