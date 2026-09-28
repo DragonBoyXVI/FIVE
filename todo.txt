@@ -2,6 +2,34 @@ SETTINGS
 stores and manages various user options, not related to game settings like difficulty.
 
 
+MAIN GAME LOOP
+-- Pregame steps
+- Game asks player for their language if its their first time playing
+- Player sees title screen
+- Player sees the main menu
+- Player picks a character to follow
+- Player may modify difficulty options if they wish, they should be editable anytime, as difficulty is not the point.
+-- Main game loop
+- Player should go through these stages of gameplay:
+	Introductarty story
+	Intro to area
+	set player free to explore area and seek out the main goal/side goals
+	Intermediate story as objectives are cleared
+	Area climax/wrap up
+	Character development as we set up the next area
+- The previous stages should be modular enough to shake up for later sections
+- Collectables and secrets scattered EVERYWHERE
+- Repeat
+- Story ends at some defining climax
+-- Postgame steps
+- Player sees blorbo climax (coooooommmmm)
+- Player sees credits
+- Player sees unlockables being unlocked
+- Player has access to extras
+- Repeat
+
+
+
 GAME WINDOW
 the root of where the game is displayed, it shows the game in a central window with a background to fill the blackspace.
 -- Should have options to change how the window is scaled.

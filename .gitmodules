@@ -1,3 +1,6 @@
 [submodule "DragonXVI-Godot-Sharp"]
 	path = DragonXVI-Godot-Sharp
 	url = https://github.com/DragonBoyXVI/DragonXVI-Godot-Sharp.git
+[submodule "DragonXVI-Godot"]
+	path = DragonXVI-Godot
+	url = https://github.com/DragonBoyXVI/DragonXVI-Godot.git
