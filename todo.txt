@@ -33,7 +33,7 @@ MAIN GAME LOOP
 GAME WINDOW
 the root of where the game is displayed, it shows the game in a central window with a background to fill the blackspace.
 -- Should have options to change how the window is scaled.
--- Background should be dynamic and able to react to ingame events.
+-- Background should be dynamic and able to react to ingame events. (dont overuse, bg shouldnt be distracting)
 
 
 VIEW SYSTEM

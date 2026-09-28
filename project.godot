@@ -10,11 +10,13 @@ config_version=5
 
 [application]
 
+run/main_scene="uid://bi5upuo4vpa5b"
 config/features=PackedStringArray("4.7")
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/aspect="expand"
 
 [dotnet]
@@ -23,8 +25,13 @@ project/assembly_name="UnnamedProject"
 
 [physics]
 
-3d/physics_engine="Jolt Physics"
+2d/run_on_separate_thread=true
+3d/physics_engine="Dummy"
+common/physics_interpolation=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+textures/default_filters/use_nearest_mipmap_filter=true
+2d/snap/snap_2d_transforms_to_pixel=true
