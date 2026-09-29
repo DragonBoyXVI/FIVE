@@ -6,13 +6,17 @@ class_name SettingsData;
 ## Saving and loading externally is done using json.
 
 
+## Test, turns the game green.
+@export var is_green: bool = false;
+
+
 ## Values not allowed to be read from/written to json files.
 const BLACK_LIST: PackedStringArray = [
 		"resource_local_to_scene",
 		"resource_local_to_scene",
-		"resource_local_to_scene",
+		"resource_name",
+		"script",
 	];
-
 
 ## Takes a json string and returns a new instance of this, filling out values with those described in the json.
 static func from_json_string( json_string: String ) -> SettingsData:
@@ -38,7 +42,6 @@ static func from_json_string( json_string: String ) -> SettingsData:
 	
 	return ns;
 
-
 ## Turns this into a json string, ready to be stored externally.
 func as_json_string() -> String:
 	
@@ -49,6 +52,9 @@ func as_json_string() -> String:
 		var property_name : String = property[ Property.NAME ];
 		
 		if ( property_name in BLACK_LIST ):
+			continue;
+		
+		if ( property_name.begins_with( "metadata" ) ):
 			continue;
 		
 		if ( not property[ Property.USAGE ] & PROPERTY_USAGE_STORAGE ):

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bi5upuo4vpa5b"]
 
 [ext_resource type="Shader" uid="uid://bi2taa4hnunqs" path="res://XVI Assets/Shaders/canvas_animation.gdshader" id="1_62kum"]
+[ext_resource type="Script" uid="uid://d0ag6yyywn2na" path="res://GameWindow/game_window.gd" id="1_gjocd"]
 [ext_resource type="Script" uid="uid://d3kesyqgaanbp" path="res://XVI Assets/Scripts/fps_label.gd" id="1_jgvt5"]
 [ext_resource type="Texture2D" uid="uid://dxg8qpx7lt6k3" path="res://icon.svg" id="2_gjocd"]
 
@@ -42,6 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gjocd")
 
 [node name="BackgroundRoot" type="Control" parent="." unique_id=1838346272]
 layout_mode = 1
