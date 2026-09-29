@@ -53,6 +53,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="BackgroundRoot" unique_id=617129002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="TextureRect" type="TextureRect" parent="BackgroundRoot" unique_id=660537467]
 material = SubResource("ShaderMaterial_ua5yu")
 layout_mode = 1
