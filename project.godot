@@ -10,8 +10,13 @@ config_version=5
 
 [application]
 
+config/name="FIVE"
 run/main_scene="uid://bi5upuo4vpa5b"
 config/features=PackedStringArray("4.7")
+
+[autoload]
+
+Settings="*uid://be1qbd2ag24m1"
 
 [display]
 
