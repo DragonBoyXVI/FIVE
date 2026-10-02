@@ -28,7 +28,7 @@ func _exit_tree() -> void:
 ## Saves the current settings to an external file.
 func save_settings_to_file() -> void:
 	
-	var settings_json_string: String = _current_settings.as_json_string();
+	var settings_json_string: String = Utils.resource_to_json( _current_settings );
 	var file := FileAccess.open( EXTERNAL_SAVE_PATH, FileAccess.WRITE );
 	if ( file == null ):
 		push_error( "SettingsNode: File open error - %s" % FileAccess.get_open_error() );
@@ -51,7 +51,8 @@ func load_settings_from_file() -> void:
 	var file_text := file.get_as_text();
 	file.close();
 	
-	var new_settings := SettingsData.from_json_string( file_text );
-	if ( new_settings != null ):
-		_current_settings = new_settings;
-		settings_updated.emit( new_settings );
+	var new_settings := SettingsData.new();
+	Utils.fill_resource_from_json( new_settings, file_text );
+	
+	_current_settings = new_settings;
+	settings_updated.emit( new_settings );
