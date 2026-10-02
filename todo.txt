@@ -1,6 +1,3 @@
-SETTINGS
-stores and manages various user options, not related to game settings like difficulty.
-
 
 MAIN GAME LOOP
 -- Pregame steps
@@ -29,10 +26,13 @@ MAIN GAME LOOP
 - Repeat
 
 
+SETTINGS
+X stores and manages various user options, not related to game settings like difficulty.
+
 
 GAME WINDOW
-the root of where the game is displayed, it shows the game in a central window with a background to fill the blackspace.
--- Should have options to change how the window is scaled.
+X the root of where the game is displayed, it shows the game in a central window with a background to fill the blackspace.
+X -- Should have options to change how the window is scaled.
 -- Background should be dynamic and able to react to ingame events. (dont overuse, bg shouldnt be distracting)
 
 
