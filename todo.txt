@@ -26,6 +26,11 @@ MAIN GAME LOOP
 - Repeat
 
 
+* main menu?
+* screen hiding system?
+* scene changer?
+
+
 SETTINGS
 X stores and manages various user options, not related to game settings like difficulty.
 

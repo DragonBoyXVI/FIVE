@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dh3j7x0aj5bv1"]
+
+[ext_resource type="PackedScene" uid="uid://ca0qjqvc0t2r8" path="res://GameWorld/ScreenCoverManager/screen_cover_manager.tscn" id="1_h0d1l"]
+[ext_resource type="Script" uid="uid://ofk1c5a0y0ko" path="res://GameWorld/game_world.gd" id="1_ujucf"]
+
+[node name="GameWorld" type="Node2D" unique_id=1903796789]
+editor_description = "Manages the game itself."
+script = ExtResource("1_ujucf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1479143066]
+
+[node name="ScreenCoverManager" parent="CanvasLayer" unique_id=1328545777 instance=ExtResource("1_h0d1l")]
+unique_name_in_owner = true

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ca0qjqvc0t2r8"]
+
+[ext_resource type="Script" uid="uid://cdbkfbc85ov2" path="res://GameWorld/ScreenCoverManager/screen_cover_manager.gd" id="1_cc6bl"]
+
+[node name="ScreenCoverManager" type="Control" unique_id=1328545777]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cc6bl")
+
+[node name="AbsoluteCover" type="ColorRect" parent="." unique_id=506067225]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

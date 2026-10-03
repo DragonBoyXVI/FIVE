@@ -16,10 +16,10 @@ func get_current_settings() -> SettingsData:
 
 func _ready() -> void:
 	
-	if ( FileAccess.file_exists( EXTERNAL_SAVE_PATH ) ):
+	_current_settings = preload( DEFAULT_SETTINGS_PATH );
+	
+	if ( !CmdArgs.has_arg( CmdArgs.IGNORE_SETTINGS ) ):
 		load_settings_from_file();
-	else:
-		_current_settings = load( DEFAULT_SETTINGS_PATH );
 
 func _exit_tree() -> void:
 	save_settings_to_file();
