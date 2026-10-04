@@ -27,7 +27,7 @@ MAIN GAME LOOP
 
 
 * main menu?
-* screen hiding system?
+X screen hiding system?
 * scene changer?
 
 
