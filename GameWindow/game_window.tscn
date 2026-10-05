@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://d3kesyqgaanbp" path="res://XVI Assets/Scripts/fps_label.gd" id="1_jgvt5"]
 [ext_resource type="Texture2D" uid="uid://dxg8qpx7lt6k3" path="res://icon.svg" id="2_gjocd"]
 [ext_resource type="PackedScene" uid="uid://dh3j7x0aj5bv1" path="res://GameWorld/game_world.tscn" id="4_xtjd8"]
+[ext_resource type="PackedScene" uid="uid://bruurrafitkvc" path="res://example_sizing.tscn" id="5_11pqf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ua5yu"]
 shader = ExtResource("1_62kum")
@@ -85,6 +86,9 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="GameWorld" parent="AspectRatioContainer/SubViewportContainer/SubViewport" unique_id=1903796789 instance=ExtResource("4_xtjd8")]
+
+[node name="ExampleSizing" parent="AspectRatioContainer/SubViewportContainer/SubViewport" unique_id=187055021 instance=ExtResource("5_11pqf")]
+visible = false
 
 [node name="FpsLabel" type="Label" parent="." unique_id=1626425941]
 layout_mode = 0

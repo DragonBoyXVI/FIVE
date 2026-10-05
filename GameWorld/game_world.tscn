@@ -11,3 +11,5 @@ script = ExtResource("1_ujucf")
 
 [node name="ScreenCoverManager" parent="CanvasLayer" unique_id=1328545777 instance=ExtResource("1_h0d1l")]
 unique_name_in_owner = true
+
+[node name="FauxRoom" type="Node2D" parent="." unique_id=601008883]

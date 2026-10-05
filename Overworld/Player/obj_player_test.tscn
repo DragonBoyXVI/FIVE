@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cgbiqnlpx7fij"]
+
+[ext_resource type="Script" uid="uid://bkidhhbot4gq4" path="res://Overworld/Player/obj_player.gd" id="1_6mkb5"]
+[ext_resource type="Texture2D" uid="uid://dxg8qpx7lt6k3" path="res://icon.svg" id="2_s3wnx"]
+[ext_resource type="Shape2D" uid="uid://dkf44alvt44ey" path="res://Overworld/Player/player_collision_shape.tres" id="3_b5xja"]
+[ext_resource type="Texture2D" uid="uid://da83q28omquti" path="res://drac_head_full_size.png" id="3_s3wnx"]
+
+[sub_resource type="TileSet" id="TileSet_ua5yu"]
+tile_size = Vector2i(32, 32)
+
+[node name="ObjPlayerTest" type="CharacterBody2D" unique_id=718832524]
+script = ExtResource("1_6mkb5")
+metadata/_custom_type_script = "uid://bkidhhbot4gq4"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=244407619]
+texture = ExtResource("2_s3wnx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1240433788]
+texture = ExtResource("3_s3wnx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1189120754]
+shape = ExtResource("3_b5xja")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1936185681]
+enabled = false
+tile_set = SubResource("TileSet_ua5yu")

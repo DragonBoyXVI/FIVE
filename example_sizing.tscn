@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bruurrafitkvc"]
+
+[ext_resource type="Texture2D" uid="uid://da83q28omquti" path="res://drac_head_full_size.png" id="1_rgikl"]
+[ext_resource type="Texture2D" uid="uid://dxg8qpx7lt6k3" path="res://icon.svg" id="2_gyjjy"]
+[ext_resource type="Texture2D" uid="uid://cvxeto17j3t14" path="res://XVI Assets/Images/pixel.png" id="3_luklp"]
+
+[node name="ExampleSizing" type="Node2D" unique_id=187055021]
+
+[node name="Overworld" type="Node2D" parent="." unique_id=1681505663]
+visible = false
+
+[node name="DracHeadFullSize" type="Sprite2D" parent="Overworld" unique_id=149795358]
+position = Vector2(268, 179)
+texture = ExtResource("1_rgikl")
+
+[node name="DracHeadHalfSize" type="Sprite2D" parent="Overworld" unique_id=1011409487]
+position = Vector2(563, 354)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_rgikl")
+
+[node name="CombatPersonal" type="Node2D" parent="." unique_id=1314531014]
+
+[node name="Icon" type="Sprite2D" parent="CombatPersonal" unique_id=1370287816]
+position = Vector2(146, 471.5)
+scale = Vector2(1, 4.5703125)
+texture = ExtResource("2_gyjjy")
+
+[node name="DracHeadFullSize" type="Sprite2D" parent="CombatPersonal" unique_id=1117705307]
+position = Vector2(154, 116)
+texture = ExtResource("1_rgikl")
+
+[node name="Icon2" type="Sprite2D" parent="CombatPersonal" unique_id=637455676]
+position = Vector2(1113, 472.5)
+scale = Vector2(-1, 4.57)
+texture = ExtResource("2_gyjjy")
+
+[node name="DracHeadFullSize2" type="Sprite2D" parent="CombatPersonal" unique_id=390346751]
+position = Vector2(1121, 117)
+scale = Vector2(-1, 1)
+texture = ExtResource("1_rgikl")
+
+[node name="Sprite2D" type="Sprite2D" parent="CombatPersonal" unique_id=1357672546]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(45, 652)
+scale = Vector2(1198, 143.00003)
+texture = ExtResource("3_luklp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CombatPersonal" unique_id=791835480]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(524, 31)
+scale = Vector2(207.99997, 535)
+texture = ExtResource("3_luklp")
+
+[node name="Label" type="Label" parent="CombatPersonal" unique_id=1633890321]
+anchors_preset = -1
+anchor_right = 0.16000001
+anchor_bottom = 0.31300002
+offset_left = 516.0
+offset_top = 673.0
+offset_right = 746.0
+offset_bottom = 696.0
+text = "DESCRIPTION OR SOMETHING"
+
+[node name="Label2" type="Label" parent="CombatPersonal" unique_id=1564028982]
+anchors_preset = -1
+anchor_right = 0.16000001
+anchor_bottom = 0.31300002
+offset_left = 530.0
+offset_top = 50.0
+offset_right = 721.0
+offset_bottom = 551.0
+text = "OPTIONS IN A LIST,
+CHOOSE AN ACTION 
+HERE THEN CLICK
+ON A TARGET OUTSIDE
+THIS BOX?
+
+DISAPEARS WHEN NOT
+IN USE
+
+CHARS SHRINK WHEN
+A TEAM IS INVOLVED?
+
+POSITIONING GIMICK?
+
+FULL SIZE ART 
+WONT WORK"

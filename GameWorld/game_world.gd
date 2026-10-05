@@ -5,7 +5,7 @@ extends Node2D;
 
 
 func _ready() -> void:
-	
+	return;
 	_screen_cover_manager.cover_screen();
 	await _screen_cover_manager.finished;
 	_screen_cover_manager.uncover_screen();
