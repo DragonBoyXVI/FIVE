@@ -16,11 +16,13 @@ metadata/_custom_type_script = "uid://bkidhhbot4gq4"
 texture = ExtResource("2_s3wnx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1240433788]
+visible = false
 texture = ExtResource("3_s3wnx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1189120754]
 shape = ExtResource("3_b5xja")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1936185681]
+visible = false
 enabled = false
 tile_set = SubResource("TileSet_ua5yu")

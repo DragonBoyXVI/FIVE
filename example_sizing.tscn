@@ -84,4 +84,16 @@ A TEAM IS INVOLVED?
 POSITIONING GIMICK?
 
 FULL SIZE ART 
-WONT WORK"
+WONT WORK OUTSIDE
+OF DIALOUGE BUSTS"
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=636012922]
+position = Vector2(375, 336)
+texture = ExtResource("2_gyjjy")
+
+[node name="Label" type="Label" parent="Icon" unique_id=913762181]
+offset_left = -64.0
+offset_top = 74.0
+offset_right = 70.0
+offset_bottom = 97.0
+text = "PERFECT SIZE REF"
