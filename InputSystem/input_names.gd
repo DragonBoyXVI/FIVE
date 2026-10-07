@@ -16,6 +16,9 @@ class_name InputNames;
 	const DOWN := &"Move Down";
 	const LEFT := &"Move Left";
 	const UP := &"Move Up";
+	
+	static func get_vector() -> Vector2:
+		return Input.get_vector( LEFT, RIGHT, UP, DOWN );
 
 # Z
 const ACCEPT := &"Accept";

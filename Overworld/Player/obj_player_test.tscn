@@ -4,12 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://dxg8qpx7lt6k3" path="res://icon.svg" id="2_s3wnx"]
 [ext_resource type="Shape2D" uid="uid://dkf44alvt44ey" path="res://Overworld/Player/player_collision_shape.tres" id="3_b5xja"]
 [ext_resource type="Texture2D" uid="uid://da83q28omquti" path="res://drac_head_full_size.png" id="3_s3wnx"]
+[ext_resource type="Script" uid="uid://c1v720exdvjg1" path="res://DragonXVI-Godot/StateMachines/state_machine.gd" id="5_klb6m"]
+[ext_resource type="Script" uid="uid://cmg4xslrr7lsi" path="res://Overworld/Player/States/player_free.gd" id="6_262i6"]
 
 [sub_resource type="TileSet" id="TileSet_ua5yu"]
 tile_size = Vector2i(32, 32)
 
 [node name="ObjPlayerTest" type="CharacterBody2D" unique_id=718832524]
 script = ExtResource("1_6mkb5")
+walking_speed = 800.0
 metadata/_custom_type_script = "uid://bkidhhbot4gq4"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=244407619]
@@ -26,3 +29,13 @@ shape = ExtResource("3_b5xja")
 visible = false
 enabled = false
 tile_set = SubResource("TileSet_ua5yu")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1700742583 node_paths=PackedStringArray("_initial_state")]
+script = ExtResource("5_klb6m")
+_initial_state = NodePath("PlayerFree")
+metadata/_custom_type_script = "uid://c1v720exdvjg1"
+
+[node name="PlayerFree" type="Node" parent="StateMachine" unique_id=1489890024 node_paths=PackedStringArray("_player")]
+script = ExtResource("6_262i6")
+_player = NodePath("../..")
+metadata/_custom_type_script = "uid://cmg4xslrr7lsi"

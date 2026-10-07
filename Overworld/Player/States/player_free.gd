@@ -6,5 +6,7 @@ class_name PlayerFree;
 ## Default state
 
 
-func _physics_process( _delta: float ) -> void:
-	pass
+func _physics_process( delta: float ) -> void:
+	
+	var input_vector := InputNames.Move.get_vector();
+	_player.move_in_direction( delta, input_vector );
