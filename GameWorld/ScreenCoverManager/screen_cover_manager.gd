@@ -19,7 +19,7 @@ func _ready() -> void:
 	_absolute_cover.hide();
 	
 	#TEST
-	change_cover_now( "uid://btva0v8gbyrr4" );
+	change_cover( "uid://btva0v8gbyrr4" );
 
 
 ## Hides the screen with an animation.
@@ -43,7 +43,7 @@ func uncover_screen() -> void:
 ## For when it cant be waited on.[br]
 ## [br]
 ## cover_path: [String] - Path to the cover to load.
-func change_cover_now( cover_path: String ) -> void:
+func change_cover( cover_path: String ) -> void:
 	if ( _current_cover_path == cover_path ):
 		return;
 	_current_cover_path = cover_path;

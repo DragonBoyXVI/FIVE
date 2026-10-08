@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cp4kb0quo3vol"]
+
+[ext_resource type="Script" uid="uid://v1di0ylt65qv" path="res://GameWorld/RoomManagment/Rooms/obj_room.gd" id="1_ibw0e"]
+[ext_resource type="PackedScene" uid="uid://cgbiqnlpx7fij" path="res://GameWorld/Overworld/Player/obj_player_test.tscn" id="2_0sydi"]
+
+[node name="ObjRoomTest" type="Node2D" unique_id=1329810023]
+script = ExtResource("1_ibw0e")
+metadata/_custom_type_script = "uid://v1di0ylt65qv"
+
+[node name="ObjPlayerTest" parent="." unique_id=718832524 instance=ExtResource("2_0sydi")]
+position = Vector2(403, 255)

@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://ca0qjqvc0t2r8" path="res://GameWorld/ScreenCoverManager/screen_cover_manager.tscn" id="1_h0d1l"]
 [ext_resource type="Script" uid="uid://ofk1c5a0y0ko" path="res://GameWorld/game_world.gd" id="1_ujucf"]
+[ext_resource type="Script" uid="uid://c3aghrwgngvtl" path="res://GameWorld/RoomManagment/room_manager.gd" id="3_p2je4"]
 
 [node name="GameWorld" type="Node2D" unique_id=1903796789]
 editor_description = "Manages the game itself."
 script = ExtResource("1_ujucf")
+_init_ow_room = "uid://cp4kb0quo3vol"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1479143066]
 
@@ -16,6 +18,7 @@ unique_name_in_owner = true
 
 [node name="BattleRoom" type="Node2D" parent="BattleRoomManager" unique_id=1127946764]
 
-[node name="OverworldRoomManager" type="Node2D" parent="." unique_id=419152724]
-
-[node name="OverworldRoom" type="Node2D" parent="OverworldRoomManager" unique_id=1474654301]
+[node name="OverworldRoomManager" type="Node2D" parent="." unique_id=1143256790]
+unique_name_in_owner = true
+script = ExtResource("3_p2je4")
+metadata/_custom_type_script = "uid://c3aghrwgngvtl"

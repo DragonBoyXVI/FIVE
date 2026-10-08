@@ -3,82 +3,8 @@
 [ext_resource type="Script" uid="uid://d22u4ap6o3b05" path="res://GameWorld/ScreenCoverManager/default_screen_cover.gd" id="1_ywpqc"]
 [ext_resource type="Shader" uid="uid://uy38l5nukv0d" path="res://CashewShader/cashew_transition.gdshader" id="2_ywpqc"]
 
-[sub_resource type="Animation" id="Animation_y5fdh"]
-resource_name = "CoverScreen"
-loop_mode = 1
-step = 0.016666668
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.98333335),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"_randomize_speed"
-}, {
-"args": [],
-"method": &"emit_finished"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:material:shader_parameter/rotation_angle")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.41666666, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [-17.825, 64.305, 67.776, -100.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect:material:shader_parameter/progress")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.41666666, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.8, 0.7, 1.8]
-}
-
-[sub_resource type="Animation" id="Animation_ywpqc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/rotation_angle")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:material:shader_parameter/progress")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.8]
-}
-
 [sub_resource type="Animation" id="Animation_xmgnm"]
-resource_name = "UncoverScreen"
-loop_mode = 1
+resource_name = "CoverScreen"
 step = 0.016666668
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -122,11 +48,83 @@ tracks/2/keys = {
 "values": [1.8, 0.7, 0.8, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_ywpqc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/rotation_angle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.8]
+}
+
+[sub_resource type="Animation" id="Animation_y5fdh"]
+resource_name = "UncoverScreen"
+step = 0.016666668
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.98333335),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_randomize_speed"
+}, {
+"args": [],
+"method": &"emit_finished"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/rotation_angle")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.41666666, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-17.825, 64.305, 67.776, -100.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.41666666, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.8, 0.7, 1.8]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmgnm"]
 _data = {
-&"CoverScreen": SubResource("Animation_y5fdh"),
+&"CoverScreen": SubResource("Animation_xmgnm"),
 &"RESET": SubResource("Animation_ywpqc"),
-&"UncoverScreen": SubResource("Animation_xmgnm")
+&"UncoverScreen": SubResource("Animation_y5fdh")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5xcc6"]
