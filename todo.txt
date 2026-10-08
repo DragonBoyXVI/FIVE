@@ -26,9 +26,6 @@ MAIN GAME LOOP
 - Repeat
 
 
-* main menu?
-X screen hiding system?
-* scene changer?
 
 
 SETTINGS
@@ -44,3 +41,10 @@ X -- Should have options to change how the window is scaled.
 VIEW SYSTEM
 Overworld is the bottom most layer?
 Additional layers can appear on top, like menues, dialouge, or combat, pausing all views below it?
+
+
+ACTUAL FECKIN TO DO LIST
+- Cutscene managment
+- Figure out overworld camera
+- Swapping from overworld to battle
+- Figure out battle camera

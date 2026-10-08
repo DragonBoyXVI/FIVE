@@ -10,16 +10,12 @@ signal cover_changed();
 @onready var _absolute_cover: Control = $AbsoluteCover;
 
 ## Stored to prevent changing to a scene were already in.
-var _current_cover_path: String = "";
-var _current_cover: ObjScreenCover;
+@export var _current_cover: ObjScreenCover;
 
 
 func _ready() -> void:
 	
 	_absolute_cover.hide();
-	
-	#TEST
-	change_cover( "uid://btva0v8gbyrr4" );
 
 
 ## Hides the screen with an animation.
@@ -44,14 +40,11 @@ func uncover_screen() -> void:
 ## [br]
 ## cover_path: [String] - Path to the cover to load.
 func change_cover( cover_path: String ) -> void:
-	if ( _current_cover_path == cover_path ):
-		return;
-	_current_cover_path = cover_path;
+	
+	var cover_scene: PackedScene = load( cover_path );
 	
 	if ( _current_cover ):
 		_current_cover.queue_free();
-	
-	var cover_scene: PackedScene = load( cover_path );
 	_current_cover = cover_scene.instantiate();
 	add_child( _current_cover );
 	
@@ -62,9 +55,6 @@ func change_cover( cover_path: String ) -> void:
 ## [br]
 ## cover_path: [String] - Path to the cover to load.
 func change_cover_thread( cover_path: String ) -> void:
-	if ( _current_cover_path == cover_path ):
-		return;
-	_current_cover_path = cover_path;
 	
 	var cover_scene: PackedScene = await Utils.load_resource_coroutine( cover_path, "PackedScene" );
 	

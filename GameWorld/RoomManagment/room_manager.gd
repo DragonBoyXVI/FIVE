@@ -18,7 +18,7 @@ class_name RoomManager;
 signal room_changed( room: ObjRoom );
 
 
-var _current_room: ObjRoom;
+@export var _current_room: ObjRoom;
 
 
 ## Changes the current room to the one at the file path.
