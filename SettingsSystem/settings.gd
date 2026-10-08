@@ -22,7 +22,8 @@ func _ready() -> void:
 		load_settings_from_file();
 
 func _exit_tree() -> void:
-	save_settings_to_file();
+	if ( not CmdArgs.has_arg( CmdArgs.DEV_MODE ) ):
+		save_settings_to_file();
 
 
 ## Saves the current settings to an external file.

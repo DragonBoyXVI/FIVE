@@ -4,5 +4,4 @@
 
 [resource]
 script = ExtResource("1_ifore")
-is_green = true
 metadata/_custom_type_script = "uid://s7mtdurjn4rl"

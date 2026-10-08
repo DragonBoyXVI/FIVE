@@ -3,6 +3,9 @@ extends StrippedCharacterBody2D;
 class_name ObjPlayer;
 
 
+static var is_controlable: bool = true;
+
+
 #@export var _state_machine: StateMachine;
 
 

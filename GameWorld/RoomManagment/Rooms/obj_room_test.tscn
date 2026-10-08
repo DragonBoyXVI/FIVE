@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://v1di0ylt65qv" path="res://GameWorld/RoomManagment/Rooms/obj_room.gd" id="1_ibw0e"]
 [ext_resource type="PackedScene" uid="uid://cgbiqnlpx7fij" path="res://GameWorld/Overworld/Player/obj_player_test.tscn" id="2_0sydi"]
+[ext_resource type="Texture2D" uid="uid://da83q28omquti" path="res://drac_head_full_size.png" id="2_3muxm"]
 
 [node name="ObjRoomTest" type="Node2D" unique_id=1329810023]
 script = ExtResource("1_ibw0e")
 metadata/_custom_type_script = "uid://v1di0ylt65qv"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1767335001]
+position = Vector2(640.00006, 360.00003)
+scale = Vector2(4.8120303, 4.137931)
+texture = ExtResource("2_3muxm")
 
 [node name="ObjPlayerTest" parent="." unique_id=718832524 instance=ExtResource("2_0sydi")]
 position = Vector2(403, 255)

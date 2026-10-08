@@ -48,3 +48,11 @@ ACTUAL FECKIN TO DO LIST
 - Figure out overworld camera
 - Swapping from overworld to battle
 - Figure out battle camera
+
+Figure out cutscenes
+- what does it do?
+-- Play dialouge
+-- Move characters
+-- Set flags
+-- Hide/show screen
+-- change room

@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.7")
 [autoload]
 
 Settings="*uid://be1qbd2ag24m1"
+Radio="*uid://bhhjwdqbdrb8r"
 
 [display]
 
@@ -30,7 +31,7 @@ project/assembly_name="UnnamedProject"
 
 [editor]
 
-run/main_run_args="--dev"
+run/main_run_args="--dev --ignore-settings"
 
 [input]
 
