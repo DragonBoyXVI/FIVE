@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cwjvbi713p64u"]
+
+[ext_resource type="Script" uid="uid://cpyu2jfpps0il" path="res://GameWorld/Overworld/Camera/obj_camera_overworld.gd" id="1_p60my"]
+[ext_resource type="Script" uid="uid://c1v720exdvjg1" path="res://DragonXVI-Godot/StateMachines/state_machine.gd" id="2_jlfw6"]
+[ext_resource type="Script" uid="uid://0kc05r7tp7c3" path="res://GameWorld/Overworld/Camera/States/camera_overworld_follow_node.gd" id="3_dbbq3"]
+
+[node name="ObjCameraOverworld" type="Camera2D" unique_id=474024067]
+script = ExtResource("1_p60my")
+metadata/_custom_type_script = "uid://cpyu2jfpps0il"
+
+[node name="StateMachine" type="Node" parent="." unique_id=352896172]
+script = ExtResource("2_jlfw6")
+metadata/_custom_type_script = "uid://c1v720exdvjg1"
+
+[node name="OverworldCameraFollowNode" type="Node" parent="StateMachine" unique_id=924869718 node_paths=PackedStringArray("_camera")]
+script = ExtResource("3_dbbq3")
+_camera = NodePath("../..")
+metadata/_custom_type_script = "uid://0kc05r7tp7c3"
