@@ -43,16 +43,29 @@ Overworld is the bottom most layer?
 Additional layers can appear on top, like menues, dialouge, or combat, pausing all views below it?
 
 
-ACTUAL FECKIN TO DO LIST
+ACTUAL FECKIN TO DO LIST (random order)
 - Cutscene managment
 - Figure out overworld camera
 - Swapping from overworld to battle
 - Figure out battle camera
+- Figure out dialouge
 
-Figure out cutscenes
+
+Figure out cutscenes (NO)
 - what does it do?
 -- Play dialouge
--- Move characters
+-- Move characters (actor objects?) (smoke and mirrors.,.,.,)
+-- Play animations
 -- Set flags
 -- Hide/show screen
 -- change room
+
+cutscenes should be local objects to keep complexity down
+KISS
+
+needs to access and command many diffrent systems
+needs to access and command nodes that could be anywhere in the tree
+its the game world feck
+
+oobie gaboobie
+oopy goopy

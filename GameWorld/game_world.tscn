@@ -14,9 +14,10 @@ _init_ow_room = "uid://cp4kb0quo3vol"
 [node name="ScreenCoverManager" parent="CanvasLayer" unique_id=1328545777 instance=ExtResource("1_h0d1l")]
 unique_name_in_owner = true
 
-[node name="BattleRoomManager" type="Node2D" parent="." unique_id=2110340033]
-
-[node name="BattleRoom" type="Node2D" parent="BattleRoomManager" unique_id=1127946764]
+[node name="BattleRoomManager" type="Node2D" parent="." unique_id=1572270420]
+unique_name_in_owner = true
+script = ExtResource("3_p2je4")
+metadata/_custom_type_script = "uid://c3aghrwgngvtl"
 
 [node name="OverworldRoomManager" type="Node2D" parent="." unique_id=1143256790]
 unique_name_in_owner = true
