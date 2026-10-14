@@ -43,6 +43,11 @@ Overworld is the bottom most layer?
 Additional layers can appear on top, like menues, dialouge, or combat, pausing all views below it?
 
 
+Design outside in
+build the room, then decide how the room uses its objects
+components.,.,.,
+
+
 ACTUAL FECKIN TO DO LIST (random order)
 - Cutscene managment
 - Figure out overworld camera
