@@ -9,10 +9,12 @@ script = ExtResource("1_p60my")
 metadata/_custom_type_script = "uid://cpyu2jfpps0il"
 
 [node name="StateMachine" type="Node" parent="." unique_id=352896172]
+unique_name_in_owner = true
 script = ExtResource("2_jlfw6")
 metadata/_custom_type_script = "uid://c1v720exdvjg1"
 
 [node name="OverworldCameraFollowNode" type="Node" parent="StateMachine" unique_id=924869718 node_paths=PackedStringArray("_camera")]
+unique_name_in_owner = true
 script = ExtResource("3_dbbq3")
 _camera = NodePath("../..")
 metadata/_custom_type_script = "uid://0kc05r7tp7c3"

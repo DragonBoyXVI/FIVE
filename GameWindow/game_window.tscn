@@ -48,7 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(1, 0, 1, 1)
 
 [node name="TextureRect" type="TextureRect" parent="BackgroundRoot" unique_id=660537467]
 material = SubResource("ShaderMaterial_ua5yu")
