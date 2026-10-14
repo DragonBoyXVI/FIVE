@@ -11,15 +11,48 @@ _init_ow_room = "uid://cp4kb0quo3vol"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1479143066]
 
+[node name="OverworldSubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=1866488395]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/OverworldSubViewportContainer" unique_id=891003142]
+disable_3d = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+audio_listener_enable_2d = true
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="OverworldRoomManager" type="Node2D" parent="CanvasLayer/OverworldSubViewportContainer/SubViewport" unique_id=1143256790]
+unique_name_in_owner = true
+script = ExtResource("3_p2je4")
+metadata/_custom_type_script = "uid://c3aghrwgngvtl"
+
+[node name="BattleSubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=527740819]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/BattleSubViewportContainer" unique_id=144635776]
+disable_3d = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+audio_listener_enable_2d = true
+size = Vector2i(1280, 720)
+render_target_update_mode = 0
+
+[node name="BattleRoomManager" type="Node2D" parent="CanvasLayer/BattleSubViewportContainer/SubViewport" unique_id=1572270420]
+unique_name_in_owner = true
+script = ExtResource("3_p2je4")
+metadata/_custom_type_script = "uid://c3aghrwgngvtl"
+
 [node name="ScreenCoverManager" parent="CanvasLayer" unique_id=1328545777 instance=ExtResource("1_h0d1l")]
 unique_name_in_owner = true
-
-[node name="BattleRoomManager" type="Node2D" parent="." unique_id=1572270420]
-unique_name_in_owner = true
-script = ExtResource("3_p2je4")
-metadata/_custom_type_script = "uid://c3aghrwgngvtl"
-
-[node name="OverworldRoomManager" type="Node2D" parent="." unique_id=1143256790]
-unique_name_in_owner = true
-script = ExtResource("3_p2je4")
-metadata/_custom_type_script = "uid://c3aghrwgngvtl"

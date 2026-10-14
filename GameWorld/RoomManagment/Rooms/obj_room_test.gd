@@ -15,8 +15,6 @@ func _ready() -> void:
 	if ( Engine.is_editor_hint() ):
 		return;
 	
-	@warning_ignore("incompatible_ternary")
-	$ObjCameraOverworld.set_follow_node( _moving_sprite if thingy else _obj_player_test );
 
 func _process( _delta: float ) -> void:
 	
@@ -30,6 +28,4 @@ func _unhandled_input( event: InputEvent ) -> void:
 		if event.pressed:
 			if event.keycode == KEY_SPACE:
 				thingy = not thingy;
-				
-				@warning_ignore("incompatible_ternary")
-				$ObjCameraOverworld.set_follow_node( _moving_sprite if thingy else _obj_player_test );
+				pass

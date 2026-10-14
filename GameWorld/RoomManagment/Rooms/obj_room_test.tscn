@@ -4,9 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cgbiqnlpx7fij" path="res://GameWorld/Overworld/Player/obj_player_test.tscn" id="2_0sydi"]
 [ext_resource type="Texture2D" uid="uid://da83q28omquti" path="res://drac_head_full_size.png" id="2_3muxm"]
 [ext_resource type="TileSet" uid="uid://ble5xlrbade8y" path="res://tiles.tres" id="3_3muxm"]
-[ext_resource type="PackedScene" uid="uid://cwjvbi713p64u" path="res://GameWorld/Overworld/Camera/obj_camera_overworld.tscn" id="5_0kjat"]
 [ext_resource type="Texture2D" uid="uid://b5ribwh1tf45n" path="res://XVI Assets/Images/Characters/brick.png" id="6_0kjat"]
-[ext_resource type="Script" uid="uid://cp7fk5mpltqmr" path="res://GameWorld/Overworld/RoomBuildingBlocks/camera_layout_creator.gd" id="7_jxofa"]
+[ext_resource type="Script" uid="uid://cp7fk5mpltqmr" path="res://GameWorld/RoomManagment/RoomBuildingBlocks/camera_layout_creator.gd" id="7_jxofa"]
 
 [node name="ObjRoomTest" type="Node2D" unique_id=1329810023]
 script = ExtResource("1_p56kr")
@@ -26,17 +25,13 @@ navigation_enabled = false
 [node name="ObjPlayerTest" parent="." unique_id=718832524 instance=ExtResource("2_0sydi")]
 position = Vector2(403, 255)
 
-[node name="ObjCameraOverworld" parent="." unique_id=474024067 instance=ExtResource("5_0kjat")]
-
 [node name="MovingSprite" type="Sprite2D" parent="." unique_id=943774377]
 unique_name_in_owner = true
 texture = ExtResource("6_0kjat")
 
-[node name="Camera2D" type="Camera2D" parent="MovingSprite" unique_id=1194895745]
-enabled = false
-
 [node name="CameraLayoutCreator" type="Node" parent="." unique_id=527631337 node_paths=PackedStringArray("_layout_tilemap", "_camera")]
 script = ExtResource("7_jxofa")
 _layout_tilemap = NodePath("../TileMapWalls")
-_camera = NodePath("../ObjCameraOverworld")
-metadata/_custom_type_script = "uid://cp7fk5mpltqmr"
+_camera = NodePath("../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=95541718]
