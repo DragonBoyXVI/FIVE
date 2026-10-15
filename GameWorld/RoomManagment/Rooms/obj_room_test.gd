@@ -14,7 +14,6 @@ func _ready() -> void:
 	
 	if ( Engine.is_editor_hint() ):
 		return;
-	
 
 func _process( _delta: float ) -> void:
 	
@@ -28,4 +27,4 @@ func _unhandled_input( event: InputEvent ) -> void:
 		if event.pressed:
 			if event.keycode == KEY_SPACE:
 				thingy = not thingy;
-				pass
+				Radio.grab_camera( _obj_player_test if thingy else _moving_sprite );
