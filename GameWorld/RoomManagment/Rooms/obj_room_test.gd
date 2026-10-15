@@ -15,11 +15,6 @@ func _ready() -> void:
 	if ( Engine.is_editor_hint() ):
 		return;
 
-func _process( _delta: float ) -> void:
-	
-	const MOV := Consts.SCREEN_SIZE.x * 0.5;
-	_moving_sprite.position.x = MOV + ( sin( Time.get_ticks_msec() / 1_000.0 ) * MOV );
-
 func _unhandled_input( event: InputEvent ) -> void:
 	if event.is_echo(): return;
 	
@@ -27,4 +22,5 @@ func _unhandled_input( event: InputEvent ) -> void:
 		if event.pressed:
 			if event.keycode == KEY_SPACE:
 				thingy = not thingy;
+				@warning_ignore("incompatible_ternary")
 				Radio.grab_camera( _obj_player_test if thingy else _moving_sprite );

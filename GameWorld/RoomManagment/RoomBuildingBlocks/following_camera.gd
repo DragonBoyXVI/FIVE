@@ -27,13 +27,31 @@ func _ready() -> void:
 func _process( delta: float ) -> void:
 	if ( not is_instance_valid( node_to_follow ) ):
 		return;
+	if ( process_callback != CAMERA2D_PROCESS_IDLE ): return;
+	
+	#var move_delta: float = speed * delta;
+	#global_position = global_position.move_toward( node_to_follow.global_position, move_delta );
+	global_position = node_to_follow.global_position;
+
+func _physics_process( delta: float ) -> void:
+	if ( not is_instance_valid( node_to_follow ) ):
+		return;
+	if ( process_callback != CAMERA2D_PROCESS_PHYSICS ): return;
 	
 	var move_delta: float = speed * delta;
 	global_position = global_position.move_toward( node_to_follow.global_position, move_delta );
 
-
 func _on_radio_grab_camera_requested( node: Node2D ) -> void:
+	if ( !is_instance_valid( node ) ):
+		node = null;
+	
 	if ( get_world_2d() != node.get_world_2d() ):
 		return;
 	
+	#if ( node is CollisionObject2D ):
+		#process_callback = Camera2D.CAMERA2D_PROCESS_PHYSICS;
+	#else:
+		#process_callback = Camera2D.CAMERA2D_PROCESS_IDLE;
+	
 	node_to_follow = node;
+	global_position = get_screen_center_position();

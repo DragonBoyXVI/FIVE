@@ -24,6 +24,7 @@ texture = ExtResource("3_s3wnx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1189120754]
 shape = ExtResource("3_b5xja")
+disabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1936185681]
 visible = false

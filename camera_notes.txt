@@ -1,0 +1,4 @@
+Jitter is caused by physics/visual desync
+problem is especially noticable at high frame rates, and with a faster camera
+Camera needs to be slow ish to hide jitter, but should not be too laggy
+camera also needs to be controlable for cutscenes

@@ -13,7 +13,6 @@ config_version=5
 config/name="FIVE"
 run/main_scene="uid://bi5upuo4vpa5b"
 config/features=PackedStringArray("4.7")
-run/max_fps=40
 
 [autoload]
 
@@ -94,6 +93,7 @@ Special={
 
 2d/run_on_separate_thread=true
 3d/physics_engine="Dummy"
+common/physics_interpolation=true
 
 [rendering]
 
