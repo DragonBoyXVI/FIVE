@@ -7,6 +7,9 @@ class_name CameraLayoutCreator;
 ## If you exlcude this node, you can set up the camera yourself.
 
 
+## Set this to true for this to skip its setup without removing the node.
+@export var _disabled: bool = false;
+
 ## Used to determine the kayout of the room in question.
 @export var _layout_tilemap: TileMapLayer:
 	set( new ):
@@ -24,6 +27,9 @@ func _ready() -> void:
 	if ( Engine.is_editor_hint() ):
 		
 		XVIFuncs.set_node_processes( self, false );
+		return;
+	
+	if ( _disabled ):
 		return;
 	
 	var parent: Node = get_parent();
@@ -87,23 +93,4 @@ func _perform_layout_creation() -> void:
 	_camera.limit_top = floori( top_left_global_pos.y );
 	_camera.limit_right = ceili( bottom_right_global_pos.x );
 	_camera.limit_bottom = ceili( bottom_right_global_pos.y );
-	
-	print( "tl ", top_left_global_pos );
-	print( "br ", bottom_right_global_pos );
-	
-	var parent := get_parent();
-	
-	var sprite1 := Sprite2D.new();
-	sprite1.texture = preload( "res://icon.svg" );
-	sprite1.modulate = Color.RED;
-	parent.add_child( sprite1 );
-	sprite1.global_position = top_left_global_pos;
-	sprite1.scale *= 0.1;
-	var sprite2 := Sprite2D.new();
-	sprite2.texture = preload( "res://icon.svg" );
-	sprite2.modulate = Color.RED;
-	parent.add_child( sprite2 );
-	sprite2.global_position = bottom_right_global_pos;
-	sprite2.scale *= 0.1;
-	
 	pass;

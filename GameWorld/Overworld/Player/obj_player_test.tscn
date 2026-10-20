@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://da83q28omquti" path="res://drac_head_full_size.png" id="3_s3wnx"]
 [ext_resource type="Script" uid="uid://c1v720exdvjg1" path="res://DragonXVI-Godot/StateMachines/state_machine.gd" id="5_klb6m"]
 [ext_resource type="Script" uid="uid://cmg4xslrr7lsi" path="res://GameWorld/Overworld/Player/States/player_free.gd" id="6_262i6"]
+[ext_resource type="Texture2D" uid="uid://co7j8ckrp6x72" path="res://XVI Assets/Images/Script Icons/state_node.atlastex" id="7_606y5"]
 
 [sub_resource type="TileSet" id="TileSet_ua5yu"]
 tile_size = Vector2i(32, 32)
@@ -40,3 +41,10 @@ metadata/_custom_type_script = "uid://c1v720exdvjg1"
 script = ExtResource("6_262i6")
 _player = NodePath("../..")
 metadata/_custom_type_script = "uid://cmg4xslrr7lsi"
+
+[node name="GenericCameraMarker" type="Marker2D" parent="." unique_id=1188713233]
+unique_name_in_owner = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="GenericCameraMarker" unique_id=1684135583]
+texture = ExtResource("7_606y5")

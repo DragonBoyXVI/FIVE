@@ -50,7 +50,7 @@ components.,.,.,
 
 ACTUAL FECKIN TO DO LIST (random order)
 - Cutscene managment
-- Figure out overworld camera
+X Figure out overworld camera
 - Swapping from overworld to battle
 - Figure out battle camera
 - Figure out dialouge
@@ -71,6 +71,3 @@ KISS
 needs to access and command many diffrent systems
 needs to access and command nodes that could be anywhere in the tree
 its the game world feck
-
-oobie gaboobie
-oopy goopy
