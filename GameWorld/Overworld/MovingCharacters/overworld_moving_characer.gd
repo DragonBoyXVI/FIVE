@@ -19,6 +19,7 @@ func _init() -> void:
 	super();
 	
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING;
+	collision_mask = Consts.CollisionLayer.CHARACTER_WALL;
 
 
 func routine_move_in_direction( delta: float, direction_vector: Vector2 ) -> void:
@@ -37,3 +38,5 @@ func routine_move_in_direction( delta: float, direction_vector: Vector2 ) -> voi
 		var moving_delta: float = delta * _acceleration;
 		var moving_target: Vector2 = direction_vector * _movement_speed;
 		velocity = velocity.move_toward( moving_target, moving_delta );
+	
+	move_and_slide();
