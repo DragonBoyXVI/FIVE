@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ca0qjqvc0t2r8" path="res://GameWorld/ScreenCoverManager/screen_cover_manager.tscn" id="1_h0d1l"]
 [ext_resource type="Script" uid="uid://ofk1c5a0y0ko" path="res://GameWorld/game_world.gd" id="1_ujucf"]
+[ext_resource type="Script" uid="uid://bfrkr5qs7bbcf" path="res://MiscComps/five_sub_viewport.gd" id="2_qmcug"]
 [ext_resource type="Script" uid="uid://c3aghrwgngvtl" path="res://GameWorld/RoomManagment/room_manager.gd" id="3_p2je4"]
 
 [node name="GameWorld" type="Node2D" unique_id=1903796789]
@@ -17,15 +18,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/OverworldSubViewportContainer" unique_id=891003142]
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/OverworldSubViewportContainer" unique_id=532404988]
 disable_3d = true
 handle_input_locally = false
-snap_2d_transforms_to_pixel = true
 canvas_item_default_texture_filter = 0
 audio_listener_enable_2d = true
-size = Vector2i(1280, 720)
 render_target_update_mode = 4
+script = ExtResource("2_qmcug")
+metadata/_custom_type_script = "uid://bfrkr5qs7bbcf"
 
 [node name="OverworldRoomManager" type="Node2D" parent="CanvasLayer/OverworldSubViewportContainer/SubViewport" unique_id=1143256790]
 unique_name_in_owner = true
@@ -39,14 +41,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/BattleSubViewportContainer" unique_id=144635776]
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/BattleSubViewportContainer" unique_id=689323893]
 disable_3d = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 audio_listener_enable_2d = true
-size = Vector2i(1280, 720)
 render_target_update_mode = 0
+script = ExtResource("2_qmcug")
+metadata/_custom_type_script = "uid://bfrkr5qs7bbcf"
 
 [node name="BattleRoomManager" type="Node2D" parent="CanvasLayer/BattleSubViewportContainer/SubViewport" unique_id=1572270420]
 unique_name_in_owner = true

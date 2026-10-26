@@ -12,9 +12,6 @@ class_name FollowingCamera;
 var node_to_follow: Node2D;
 
 
-@export var speed: float = 1200.0;
-
-
 func _ready() -> void:
 	
 	if ( Engine.is_editor_hint() ):
@@ -31,7 +28,8 @@ func _process( _delta: float ) -> void:
 	
 	#var move_delta: float = speed * delta;
 	#global_position = global_position.move_toward( node_to_follow.global_position, move_delta );
-	global_position = node_to_follow.global_position.round();
+	#global_position = node_to_follow.global_position.round();
+	global_position = global_position.lerp( node_to_follow.global_position, 0.25 );
 
 func _physics_process( _delta: float ) -> void:
 	if ( not is_instance_valid( node_to_follow ) ):

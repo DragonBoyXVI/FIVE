@@ -24,3 +24,16 @@ func grab_camera( node: Node2D ) -> void:
 	grab_camera_requested.emit( node );
 
 #endregion Camera
+
+#region Interactions
+
+## notify_interact_area_changed_range
+signal interact_area_changed_range( area: InteractableArea, in_range: bool );
+## Call to notify [InteractableArea]s that they have entered/left the [InteractionArea].[br]
+## [br]
+## area: [InteractableArea] - The area in question.[br]
+## in_range: [bool] - True if it is in range, false if it isnt.[br]
+func notify_interact_area_changed_range( area: InteractableArea, in_range: bool ) -> void:
+	interact_area_changed_range.emit( area, in_range );
+
+#endregion Interactions

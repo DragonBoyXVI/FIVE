@@ -4,6 +4,7 @@ extends Control;
 @onready var _sub_viewport_container: SubViewportContainer = $AspectRatioContainer/SubViewportContainer
 
 
+var _is_window_int_scaled: bool = false;
 var _is_window_custom_scaled: bool = false;
 var _custom_window_scaling_factor: float = 1.0;
 var _fullscreen_mode := SettingsData.FullscreenSetting.WINDOWED;
@@ -19,16 +20,35 @@ func _ready() -> void:
 
 func _set_window_scaling() -> void:
 	
-	if ( not _is_window_custom_scaled ):
+	if ( _is_window_custom_scaled ):
 		
-		_sub_viewport_container.size_flags_horizontal = Control.SIZE_FILL;
-		_sub_viewport_container.size_flags_vertical = Control.SIZE_FILL;
-		custom_minimum_size = Vector2.ZERO;
+		_sub_viewport_container.size_flags_horizontal = Control.SIZE_SHRINK_CENTER;
+		_sub_viewport_container.size_flags_vertical = Control.SIZE_SHRINK_CENTER;
+		_sub_viewport_container.custom_minimum_size = Consts.SCREEN_SIZE * _custom_window_scaling_factor;
 		return;
 	
-	_sub_viewport_container.size_flags_horizontal = Control.SIZE_SHRINK_CENTER;
-	_sub_viewport_container.size_flags_vertical = Control.SIZE_SHRINK_CENTER;
-	_sub_viewport_container.custom_minimum_size = Consts.SCREEN_SIZE * _custom_window_scaling_factor;
+	if ( _is_window_int_scaled ):
+		
+		_sub_viewport_container.size_flags_horizontal = Control.SIZE_SHRINK_CENTER;
+		_sub_viewport_container.size_flags_vertical = Control.SIZE_SHRINK_CENTER;
+		
+		var window := get_window();
+		var final_scale: Vector2 = Vector2( Consts.SCREEN_SIZE );
+		var scale_factor: int = 1;
+		while ( true ):
+			
+			scale_factor += 1;
+			var next_scale: Vector2 = Consts.SCREEN_SIZE * scale_factor;
+			if ( window.size.x < next_scale.x or window.size.y < next_scale.y ):
+				break;
+			else:
+				final_scale = next_scale;
+		_sub_viewport_container.custom_minimum_size = final_scale;
+		return;
+	
+	_sub_viewport_container.size_flags_horizontal = Control.SIZE_FILL;
+	_sub_viewport_container.size_flags_vertical = Control.SIZE_FILL;
+	_sub_viewport_container.custom_minimum_size = Vector2.ZERO;
 
 func _set_fullscreen() -> void:
 	var window := get_window();
@@ -49,6 +69,8 @@ func _on_window_size_changed() -> void:
 	_set_window_scaling();
 
 func _on_settings_updated( settings: SettingsData ) -> void:
+	
+	_is_window_int_scaled = settings.is_window_int_scaled;
 	
 	if ( settings.is_window_custom_scaled != _is_window_custom_scaled or settings.custom_window_scaling_factor != _custom_window_scaling_factor ):
 		_is_window_custom_scaled = settings.is_window_custom_scaled;

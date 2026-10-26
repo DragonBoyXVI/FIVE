@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://cp7fk5mpltqmr" path="res://GameWorld/RoomManagment/RoomBuildingBlocks/camera_layout_creator.gd" id="7_jxofa"]
 [ext_resource type="Script" uid="uid://cvwcr085y3gex" path="res://GameWorld/RoomManagment/RoomBuildingBlocks/following_camera.gd" id="7_oxh41"]
 [ext_resource type="PackedScene" uid="uid://nhceid3mbr6o" path="res://GameWorld/Overworld/Player/obj_player.tscn" id="8_oxh41"]
+[ext_resource type="Script" uid="uid://c0h7gnvq2ekyu" path="res://GameWorld/Overworld/InteractionSystem/interactable_area.gd" id="9_uk37q"]
+[ext_resource type="Shape2D" uid="uid://1s75qsuf4vgs" path="res://GameWorld/Overworld/Player/player_collision_shape.tres" id="10_ayjw3"]
 
 [node name="ObjRoomTest" type="Node2D" unique_id=1329810023]
 script = ExtResource("1_p56kr")
@@ -15,11 +17,11 @@ metadata/_custom_type_script = "uid://v1di0ylt65qv"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1767335001]
 position = Vector2(640.00006, 360.00003)
-scale = Vector2(4.8120303, 4.137931)
+scale = Vector2(4, 4)
 texture = ExtResource("2_3muxm")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=97986352]
-position = Vector2(1668, 651)
+position = Vector2(-315, -106)
 texture = ExtResource("2_3muxm")
 
 [node name="TileMapWalls" type="TileMapLayer" parent="." unique_id=1303236844]
@@ -44,9 +46,23 @@ _camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1170710995]
 physics_interpolation_mode = 2
-position_smoothing_enabled = true
 script = ExtResource("7_oxh41")
-speed = 500.0
 metadata/_custom_type_script = "uid://cvwcr085y3gex"
 
 [node name="ObjPlayer" parent="." unique_id=1891963432 instance=ExtResource("8_oxh41")]
+
+[node name="InteractableArea" type="Area2D" parent="." unique_id=1773284157]
+position = Vector2(81, 660)
+script = ExtResource("9_uk37q")
+metadata/_custom_type_script = "uid://c0h7gnvq2ekyu"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea" unique_id=1315387052]
+shape = ExtResource("10_ayjw3")
+
+[node name="InteractableArea2" type="Area2D" parent="." unique_id=2000475215]
+position = Vector2(177, 656)
+script = ExtResource("9_uk37q")
+metadata/_custom_type_script = "uid://c0h7gnvq2ekyu"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea2" unique_id=580448157]
+shape = ExtResource("10_ayjw3")
