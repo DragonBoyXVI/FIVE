@@ -39,6 +39,17 @@ func _init() -> void:
 	if ( Engine.is_editor_hint() ):
 		_state = _State.IN_RANGE;
 
+func _ready() -> void:
+	super();
+	
+	if ( Engine.is_editor_hint() ):
+		return;
+	
+	Radio.interact_area_changed_range.connect( _on_radio_interact_area_changed_range, CONNECT_DEFERRED );
+	Radio.interact_area_targeted.connect( _on_radio_interact_area_targeted, CONNECT_DEFERRED );
+	
+	#interacted.connect( print.bind( name ) );
+
 func _enter_tree() -> void:
 	_draw_rid = RenderingServer.canvas_item_create();
 	RenderingServer.canvas_item_set_parent( _draw_rid, get_canvas_item() );
@@ -48,9 +59,11 @@ func _enter_tree() -> void:
 
 func _exit_tree() -> void:
 	RenderingServer.free_rid( _draw_rid );
+	_draw_rid = RID();
 
 func _draw() -> void:
 	
+	RenderingServer.canvas_item_set_visible( _draw_rid, true );
 	match _state:
 		
 		_State.IN_RANGE:
@@ -70,3 +83,22 @@ func enable() -> void:
 
 func disable() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED;
+
+
+func _on_radio_interact_area_changed_range( area: InteractableArea, in_range: bool ) -> void:
+	if ( area != self ): return;
+	
+	if ( in_range and _state == _State.HIDDEN ):
+		_state = _State.IN_RANGE;
+	else:
+		_state = _State.HIDDEN;
+
+func _on_radio_interact_area_targeted( area: InteractableArea ) -> void:
+	if ( _state == _State.HIDDEN ):
+		return;
+	
+	if ( area != self ):
+		_state = _State.IN_RANGE;
+		return;
+	
+	_state = _State.TARGETED;

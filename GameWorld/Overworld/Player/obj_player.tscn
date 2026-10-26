@@ -27,9 +27,10 @@ script = ExtResource("4_rbabx")
 _initial_state = NodePath("PlayerStateFree")
 metadata/_custom_type_script = "uid://c1v720exdvjg1"
 
-[node name="PlayerStateFree" type="Node" parent="StateMachine" unique_id=1859358074 node_paths=PackedStringArray("_camera_focus", "_character")]
+[node name="PlayerStateFree" type="Node" parent="StateMachine" unique_id=1859358074 node_paths=PackedStringArray("_camera_focus", "_interactor", "_character")]
 script = ExtResource("5_8bygn")
 _camera_focus = NodePath("../../CameraMarker")
+_interactor = NodePath("../../InteractionArea")
 _character = NodePath("../..")
 metadata/_custom_type_script = "uid://ciom7uvswnr3m"
 

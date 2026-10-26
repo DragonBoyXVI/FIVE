@@ -13,7 +13,7 @@ class_name SettingsData;
 #region Game Window
 
 ## If true, the window always scales by the largest integer factor.
-@export var is_window_int_scaled: bool = true;
+@export var is_window_int_scaled: bool = false;
 ## If true, the window is scaled by a user set factor.
 @export var is_window_custom_scaled: bool = false;
 ## If custom scaling is enabled, this is the scaling factor.

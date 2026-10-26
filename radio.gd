@@ -36,4 +36,12 @@ signal interact_area_changed_range( area: InteractableArea, in_range: bool );
 func notify_interact_area_changed_range( area: InteractableArea, in_range: bool ) -> void:
 	interact_area_changed_range.emit( area, in_range );
 
+## notify_interact_area_targeted
+signal interact_area_targeted( area: InteractableArea );
+## Call to notify [InteractableArea]s that one is being targeted by the [InteractionArea].[br]
+## [br]
+## area: [InteractableArea] - The area in question.[br]
+func notify_interact_area_targeted( area: InteractableArea ) -> void:
+	interact_area_targeted.emit( area );
+
 #endregion Interactions

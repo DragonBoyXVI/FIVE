@@ -20,6 +20,16 @@ class_name InputNames;
 	static func get_vector() -> Vector2:
 		return Input.get_vector( LEFT, RIGHT, UP, DOWN );
 
+# VB?
+@abstract class Shoulder:
+	extends Object;
+	
+	const LEFT := &"Shoulder Left";
+	const RIGHT := &"Shoulder Right";
+	
+	static func get_axis() -> float:
+		return Input.get_axis( LEFT, RIGHT );
+
 # Z
 const ACCEPT := &"Accept";
 # X

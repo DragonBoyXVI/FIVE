@@ -43,3 +43,4 @@ func _position( delta: float ) -> void:
 	_internal_time += delta * _time_scale;
 	
 	position = _initial_pos + ( _move_dist * Vector2( sin( _internal_time ), cos( _internal_time) ) );
+	#position = position.round();

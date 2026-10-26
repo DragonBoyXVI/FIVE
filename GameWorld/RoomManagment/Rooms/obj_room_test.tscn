@@ -66,3 +66,19 @@ metadata/_custom_type_script = "uid://c0h7gnvq2ekyu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea2" unique_id=580448157]
 shape = ExtResource("10_ayjw3")
+
+[node name="InteractableArea3" type="Area2D" parent="." unique_id=262028226]
+position = Vector2(175, 737)
+script = ExtResource("9_uk37q")
+metadata/_custom_type_script = "uid://c0h7gnvq2ekyu"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea3" unique_id=920999151]
+shape = ExtResource("10_ayjw3")
+
+[node name="InteractableArea4" type="Area2D" parent="." unique_id=1715127072]
+position = Vector2(84, 737)
+script = ExtResource("9_uk37q")
+metadata/_custom_type_script = "uid://c0h7gnvq2ekyu"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea4" unique_id=1435142795]
+shape = ExtResource("10_ayjw3")

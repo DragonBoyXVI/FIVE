@@ -28,7 +28,7 @@ func _process( _delta: float ) -> void:
 	
 	#var move_delta: float = speed * delta;
 	#global_position = global_position.move_toward( node_to_follow.global_position, move_delta );
-	#global_position = node_to_follow.global_position.round();
+	#global_position = node_to_follow.global_position;
 	global_position = global_position.lerp( node_to_follow.global_position, 0.25 );
 
 func _physics_process( _delta: float ) -> void:
@@ -37,6 +37,7 @@ func _physics_process( _delta: float ) -> void:
 	if ( process_callback != CAMERA2D_PROCESS_PHYSICS ): return;
 	
 	global_position = node_to_follow.global_position.round();
+
 
 func _on_radio_grab_camera_requested( node: Node2D ) -> void:
 	if ( !is_instance_valid( node ) ):
