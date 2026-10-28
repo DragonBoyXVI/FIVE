@@ -26,6 +26,14 @@ func _unhandled_input( event: InputEvent ) -> void:
 	if ( event.is_echo() ):
 		return;
 	
+	if ( event is InputEventKey ):
+		if ( event.pressed ):
+			if ( event.keycode == KEY_H ):
+				if ( _interactor.can_process() ):
+					_interactor.disable.call_deferred();
+				else:
+					_interactor.enable.call_deferred();
+	
 	if ( event.is_action_pressed( InputNames.ACCEPT ) ):
 		
 		var interactable: InteractableArea = _interactor.get_targeted_interact_area();

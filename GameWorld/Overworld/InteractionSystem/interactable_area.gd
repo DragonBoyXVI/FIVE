@@ -11,6 +11,7 @@ enum _State {
 	IN_RANGE,
 	TARGETED,
 };
+const _TWEEN_TIME := 0.125;
 
 
 const INTERACT_HAND_MATERIAL = preload( "uid://c2ucj5tkrcvoa" );
@@ -28,6 +29,9 @@ var _state: _State = _State.HIDDEN:
 		queue_redraw();
 
 var _draw_rid: RID;
+var _tween: Tween;
+var _draw_transform: Transform2D = Transform2D.IDENTITY;
+var _draw_color: Color = Color.WHEAT;
 
 
 func _init() -> void:
@@ -60,22 +64,45 @@ func _enter_tree() -> void:
 func _exit_tree() -> void:
 	RenderingServer.free_rid( _draw_rid );
 	_draw_rid = RID();
+	
+	if ( _tween and _tween.is_valid() ):
+		_tween.kill();
+
+func _process( _delta: float ) -> void:
+	if ( !_draw_rid.is_valid() ): return;
+	
+	RenderingServer.canvas_item_set_transform( _draw_rid, _draw_transform );
+	RenderingServer.canvas_item_set_modulate( _draw_rid, _draw_color )
 
 func _draw() -> void:
+	
+	if ( _tween and _tween.is_valid() ):
+		_tween.kill();
+	_tween = create_tween();
+	_tween.set_parallel();
+	#_tween.set_ease( Tween.EASE_IN_OUT );
+	# set based on character?
+	_tween.set_trans( Tween.TRANS_SPRING );
 	
 	RenderingServer.canvas_item_set_visible( _draw_rid, true );
 	match _state:
 		
 		_State.IN_RANGE:
-			RenderingServer.canvas_item_set_transform( _draw_rid, Transform2D.IDENTITY.scaled( Vector2.ONE * 0.5 ) );
-			RenderingServer.canvas_item_set_modulate( _draw_rid, Color( 1.0, 1.0, 1.0, 0.625 ) );
+			#RenderingServer.canvas_item_set_transform( _draw_rid, Transform2D.IDENTITY.scaled( Vector2.ONE * 0.5 ) );
+			_tween.tween_property( self, ^"_draw_transform", Transform2D.IDENTITY.scaled( Vector2.ONE * 0.5 ), _TWEEN_TIME );
+			#RenderingServer.canvas_item_set_modulate( _draw_rid, Color( 1.0, 1.0, 1.0, 0.625 ) );
+			_tween.tween_property( self, ^"_draw_color", Color( 1.0, 1.0, 1.0, 0.625 ), _TWEEN_TIME );
 		
 		_State.TARGETED:
-			RenderingServer.canvas_item_set_transform( _draw_rid, Transform2D.IDENTITY );
-			RenderingServer.canvas_item_set_modulate( _draw_rid, Color( 1.0, 1.0, 1.0, 0.9 ) );
+			#RenderingServer.canvas_item_set_transform( _draw_rid, Transform2D.IDENTITY );
+			_tween.tween_property( self, ^"_draw_transform", Transform2D.IDENTITY, _TWEEN_TIME );
+			#RenderingServer.canvas_item_set_modulate( _draw_rid, Color( 1.0, 1.0, 1.0, 0.9 ) );
+			_tween.tween_property( self, ^"_draw_color", Color( 1.0, 1.0, 1.0, 0.9 ), _TWEEN_TIME );
 		
 		_:
-			RenderingServer.canvas_item_set_visible( _draw_rid, false );
+			_tween.tween_property( self, ^"_draw_transform", Transform2D.IDENTITY.scaled( Vector2.ONE * 0.001 ), _TWEEN_TIME );
+			_tween.tween_property( self, ^"_draw_color", Color.TRANSPARENT, _TWEEN_TIME );
+			_tween.finished.connect( RenderingServer.canvas_item_set_visible.bind( _draw_rid, false ) );
 
 
 func enable() -> void:
