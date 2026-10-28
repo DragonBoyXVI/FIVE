@@ -11,11 +11,11 @@ enum _State {
 	IN_RANGE,
 	TARGETED,
 };
-const _TWEEN_TIME := 0.125;
+const _TWEEN_TIME := 0.125 * 2;
 
 
 const INTERACT_HAND_MATERIAL = preload( "uid://c2ucj5tkrcvoa" );
-const SPRITE: Texture2D = preload( "res://icon.svg" );
+const SPRITE: Texture2D = preload( "uid://b2sjh4tricp6" );
 
 
 signal interacted();
@@ -28,10 +28,9 @@ var _state: _State = _State.HIDDEN:
 		_state = new;
 		queue_redraw();
 
-var _draw_rid: RID;
+# i wanna use draw rid to reduce node count, but it would take more more to do that with atlases than just using a node
+var _sprite: Sprite2D;
 var _tween: Tween;
-var _draw_transform: Transform2D = Transform2D.IDENTITY;
-var _draw_color: Color = Color.WHEAT;
 
 
 func _init() -> void:
@@ -39,40 +38,24 @@ func _init() -> void:
 	
 	monitorable = true;
 	collision_layer = Consts.CollisionLayer.INTERACTION;
-	
-	if ( Engine.is_editor_hint() ):
-		_state = _State.IN_RANGE;
 
 func _ready() -> void:
 	super();
 	
+	if ( not _sprite ):
+		_sprite = Sprite2D.new();
+		_sprite.texture = SPRITE;
+		_sprite.material = INTERACT_HAND_MATERIAL;
+		add_child( _sprite, false, Node.INTERNAL_MODE_BACK );
+	
 	if ( Engine.is_editor_hint() ):
+		_state = _State.IN_RANGE;
 		return;
 	
 	Radio.interact_area_changed_range.connect( _on_radio_interact_area_changed_range, CONNECT_DEFERRED );
 	Radio.interact_area_targeted.connect( _on_radio_interact_area_targeted, CONNECT_DEFERRED );
 	
 	#interacted.connect( print.bind( name ) );
-
-func _enter_tree() -> void:
-	_draw_rid = RenderingServer.canvas_item_create();
-	RenderingServer.canvas_item_set_parent( _draw_rid, get_canvas_item() );
-	var sprite_rect: Rect2 = Rect2( SPRITE.get_size() * 0.5 * -1, SPRITE.get_size() );
-	RenderingServer.canvas_item_add_texture_rect( _draw_rid, sprite_rect, SPRITE.get_rid() );
-	RenderingServer.canvas_item_set_material( _draw_rid, INTERACT_HAND_MATERIAL.get_rid() );
-
-func _exit_tree() -> void:
-	RenderingServer.free_rid( _draw_rid );
-	_draw_rid = RID();
-	
-	if ( _tween and _tween.is_valid() ):
-		_tween.kill();
-
-func _process( _delta: float ) -> void:
-	if ( !_draw_rid.is_valid() ): return;
-	
-	RenderingServer.canvas_item_set_transform( _draw_rid, _draw_transform );
-	RenderingServer.canvas_item_set_modulate( _draw_rid, _draw_color )
 
 func _draw() -> void:
 	
@@ -84,25 +67,25 @@ func _draw() -> void:
 	# set based on character?
 	_tween.set_trans( Tween.TRANS_SPRING );
 	
-	RenderingServer.canvas_item_set_visible( _draw_rid, true );
+	_sprite.show();
 	match _state:
 		
 		_State.IN_RANGE:
 			#RenderingServer.canvas_item_set_transform( _draw_rid, Transform2D.IDENTITY.scaled( Vector2.ONE * 0.5 ) );
-			_tween.tween_property( self, ^"_draw_transform", Transform2D.IDENTITY.scaled( Vector2.ONE * 0.5 ), _TWEEN_TIME );
+			_tween.tween_property( _sprite, ^"scale", Vector2.ONE * 0.5, _TWEEN_TIME );
 			#RenderingServer.canvas_item_set_modulate( _draw_rid, Color( 1.0, 1.0, 1.0, 0.625 ) );
-			_tween.tween_property( self, ^"_draw_color", Color( 1.0, 1.0, 1.0, 0.625 ), _TWEEN_TIME );
+			_tween.tween_property( _sprite, ^"modulate", Color( 1.0, 1.0, 1.0, 0.625 ), _TWEEN_TIME );
 		
 		_State.TARGETED:
 			#RenderingServer.canvas_item_set_transform( _draw_rid, Transform2D.IDENTITY );
-			_tween.tween_property( self, ^"_draw_transform", Transform2D.IDENTITY, _TWEEN_TIME );
+			_tween.tween_property( _sprite, ^"scale", Vector2.ONE, _TWEEN_TIME );
 			#RenderingServer.canvas_item_set_modulate( _draw_rid, Color( 1.0, 1.0, 1.0, 0.9 ) );
-			_tween.tween_property( self, ^"_draw_color", Color( 1.0, 1.0, 1.0, 0.9 ), _TWEEN_TIME );
+			_tween.tween_property( _sprite, ^"modulate", Color( 1.0, 1.0, 1.0, 0.9 ), _TWEEN_TIME );
 		
 		_:
-			_tween.tween_property( self, ^"_draw_transform", Transform2D.IDENTITY.scaled( Vector2.ONE * 0.001 ), _TWEEN_TIME );
-			_tween.tween_property( self, ^"_draw_color", Color.TRANSPARENT, _TWEEN_TIME );
-			_tween.finished.connect( RenderingServer.canvas_item_set_visible.bind( _draw_rid, false ) );
+			_tween.tween_property( _sprite, ^"scale", Vector2.ONE * 0.001, _TWEEN_TIME );
+			_tween.tween_property( _sprite, ^"modulate", Color.TRANSPARENT, _TWEEN_TIME );
+			_tween.finished.connect( _sprite.hide );
 
 
 func enable() -> void:

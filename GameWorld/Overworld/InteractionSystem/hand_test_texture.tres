@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://b2sjh4tricp6"]
+
+[ext_resource type="Texture2D" uid="uid://b5ribwh1tf45n" path="res://XVI Assets/Images/Characters/brick.png" id="1_bpvn2"]
+
+[resource]
+atlas = ExtResource("1_bpvn2")
+region = Rect2(147, 92, 17, 20)
+margin = Rect2(8, 6, 15, 12)

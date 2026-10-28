@@ -48,7 +48,7 @@ func remove_interact_area( area: InteractableArea ) -> void:
 	# this just makes it so that passing an area doesnt change the interact target if the target never
 	# leaves interaction range
 	if ( current_area_target ):
-		var target_index = _interact_areas_in_range.find( current_area_target );
+		var target_index: int = _interact_areas_in_range.find( current_area_target );
 		var tick_amount: int = target_index - _target_index;
 		if ( tick_amount != 0 ):
 			tick_target_index( target_index - _target_index );
@@ -63,7 +63,6 @@ func tick_target_index( amt: int ) -> void:
 		return;
 	
 	_target_index = wrapi( _target_index + amt, 0, _interact_areas_in_range.size() );
-	print( _target_index)
 	Radio.notify_interact_area_targeted( _interact_areas_in_range[ _target_index ] );
 
 func get_targeted_interact_area() -> InteractableArea:
