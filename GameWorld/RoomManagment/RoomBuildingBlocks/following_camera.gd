@@ -1,4 +1,4 @@
-
+@tool
 extends Camera2D;
 class_name FollowingCamera;
 ## Camera that follows nodes.
@@ -12,6 +12,19 @@ class_name FollowingCamera;
 var node_to_follow: Node2D;
 
 
+func _validate_property( property: Dictionary ) -> void:
+	const DISABLED: PackedStringArray = [
+		"physics_interpolation_mode",
+		"z_index",
+	];
+	
+	if ( property[ Property.NAME ] in DISABLED ):
+		property[ Property.USAGE ] = PROPERTY_USAGE_NONE;
+
+func _init() -> void:
+	
+	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF;
+
 func _ready() -> void:
 	
 	if ( Engine.is_editor_hint() ):
@@ -22,9 +35,9 @@ func _ready() -> void:
 	Radio.grab_camera_requested.connect( _on_radio_grab_camera_requested, CONNECT_DEFERRED );
 
 func _process( _delta: float ) -> void:
+	if ( process_callback != CAMERA2D_PROCESS_IDLE ): return;
 	if ( not is_instance_valid( node_to_follow ) ):
 		return;
-	if ( process_callback != CAMERA2D_PROCESS_IDLE ): return;
 	
 	#var move_delta: float = speed * delta;
 	#global_position = global_position.move_toward( node_to_follow.global_position, move_delta );
@@ -32,9 +45,9 @@ func _process( _delta: float ) -> void:
 	global_position = global_position.lerp( node_to_follow.global_position, 0.25 );
 
 func _physics_process( _delta: float ) -> void:
+	if ( process_callback != CAMERA2D_PROCESS_PHYSICS ): return;
 	if ( not is_instance_valid( node_to_follow ) ):
 		return;
-	if ( process_callback != CAMERA2D_PROCESS_PHYSICS ): return;
 	
 	global_position = node_to_follow.global_position.round();
 

@@ -38,6 +38,7 @@ func _init() -> void:
 	
 	monitorable = true;
 	collision_layer = Consts.CollisionLayer.INTERACTION;
+	z_index = Consts.ZLayer.INTERACT_PROMPT;
 
 func _ready() -> void:
 	super();

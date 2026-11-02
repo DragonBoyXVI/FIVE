@@ -12,6 +12,7 @@ const SCREEN_SIZE := Vector2i( 960, 540 );
 
 enum ZLayer {
 	
+	INTERACT_PROMPT = 20,
 }
 
 enum CollisionLayer {

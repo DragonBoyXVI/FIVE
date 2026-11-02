@@ -20,6 +20,12 @@ func _ready() -> void:
 	
 	if ( _disabled ):
 		return;
+	
+	var parent: Node = get_parent();
+	if ( not parent.is_node_ready() ):
+		await parent.ready;
+	
+	_place_player();
 
 func _notification( what: int ) -> void:
 	if ( what == NOTIFICATION_PARENTED ):
@@ -37,6 +43,14 @@ func _get_configuration_warnings() -> PackedStringArray:
 func _place_player() -> void:
 	
 	var room: ObjRoom = get_parent();
+	assert( _player_scene.can_instantiate() );
 	var player: OverworldMovingCharacter = _player_scene.instantiate();
 	
-	pass
+	room.add_child( player );
+	if ( _failsafe_location ):
+		player.global_position = _failsafe_location.global_position;
+	else:
+		player.global_position = Vector2.ZERO;
+	player.reset_physics_interpolation();
+	
+	pass;
