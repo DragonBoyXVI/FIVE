@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cp4kb0quo3vol"]
 
-[ext_resource type="Script" uid="uid://cktqqfyvr23kq" path="res://GameWorld/RoomManagment/Rooms/obj_room_test.gd" id="1_p56kr"]
+[ext_resource type="Script" uid="uid://cktqqfyvr23kq" path="res://GameWorld/RoomManagment/Rooms/Test/obj_room_test.gd" id="1_p56kr"]
 [ext_resource type="Texture2D" uid="uid://da83q28omquti" path="res://drac_head_full_size.png" id="2_3muxm"]
 [ext_resource type="TileSet" uid="uid://ble5xlrbade8y" path="res://tiles.tres" id="3_3muxm"]
 [ext_resource type="Texture2D" uid="uid://b5ribwh1tf45n" path="res://XVI Assets/Images/Characters/brick.png" id="6_0kjat"]

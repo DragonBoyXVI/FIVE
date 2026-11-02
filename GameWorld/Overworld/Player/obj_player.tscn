@@ -20,7 +20,6 @@ texture = ExtResource("2_0p74k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2081753444]
 shape = ExtResource("3_rbabx")
-disabled = true
 
 [node name="StateMachine" type="Node" parent="." unique_id=187156354 node_paths=PackedStringArray("_initial_state")]
 script = ExtResource("4_rbabx")

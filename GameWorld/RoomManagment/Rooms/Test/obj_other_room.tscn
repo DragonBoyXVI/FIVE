@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bubpuvm2tkvc7"]
+
+[ext_resource type="Script" uid="uid://v1di0ylt65qv" path="res://GameWorld/RoomManagment/Rooms/obj_room.gd" id="1_r1pyh"]
+
+[node name="ObjOtherRoom" type="Node2D" unique_id=2334159]
+script = ExtResource("1_r1pyh")
+metadata/_custom_type_script = "uid://v1di0ylt65qv"

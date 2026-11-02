@@ -37,6 +37,7 @@ func _ready() -> void:
 		await parent.ready;
 	
 	_perform_layout_creation();
+	queue_free();
 
 func _notification( what: int ) -> void:
 	if ( what == NOTIFICATION_PARENTED ):
