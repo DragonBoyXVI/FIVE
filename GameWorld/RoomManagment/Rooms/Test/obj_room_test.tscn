@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cktqqfyvr23kq" path="res://GameWorld/RoomManagment/Rooms/Test/obj_room_test.gd" id="1_p56kr"]
 [ext_resource type="Texture2D" uid="uid://da83q28omquti" path="res://drac_head_full_size.png" id="2_3muxm"]
 [ext_resource type="TileSet" uid="uid://ble5xlrbade8y" path="res://tiles.tres" id="3_3muxm"]
-[ext_resource type="Texture2D" uid="uid://b5ribwh1tf45n" path="res://XVI Assets/Images/Characters/brick.png" id="6_0kjat"]
+[ext_resource type="Texture2D" uid="uid://b5ribwh1tf45n" path="res://XVI-Godot-Assets/Images/Characters/brick.png" id="6_0kjat"]
 [ext_resource type="Script" uid="uid://s00qhgf67e7q" path="res://debug_moving_sprite.gd" id="6_oxh41"]
 [ext_resource type="Script" uid="uid://cp7fk5mpltqmr" path="res://GameWorld/RoomManagment/RoomBuildingBlocks/camera_layout_creator.gd" id="7_jxofa"]
 [ext_resource type="Script" uid="uid://cvwcr085y3gex" path="res://GameWorld/RoomManagment/RoomBuildingBlocks/following_camera.gd" id="7_oxh41"]
