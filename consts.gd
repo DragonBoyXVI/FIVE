@@ -6,8 +6,8 @@ class_name Consts;
 ##
 ## Ditto
 
-
-const SCREEN_SIZE := Vector2i( 960, 540 );
+# X920 Y512
+const SCREEN_SIZE := Vector2i( 920, 512 )#960, 540 );
 
 
 enum ZLayer {

@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_ifore")
+is_window_int_scaled = true
+fullscreen_mode = 1
 metadata/_custom_type_script = "uid://s7mtdurjn4rl"

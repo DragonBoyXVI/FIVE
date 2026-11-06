@@ -19,7 +19,6 @@ script = ExtResource("3_4lpww")
 metadata/_custom_type_script = "uid://bgwlsqdm8143e"
 
 [node name="FollowingCamera" type="Camera2D" parent="." unique_id=1394557801]
-physics_interpolation_mode = 2
 script = ExtResource("4_6jvvt")
 metadata/_custom_type_script = "uid://cvwcr085y3gex"
 

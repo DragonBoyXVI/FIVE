@@ -7,6 +7,19 @@ class_name PlayerStateFree;
 @export var _interactor: InteractionArea;
 
 
+var _camera_offset: Vector2 = Vector2.ZERO;
+
+
+func _ready() -> void:
+	super();
+	
+	if ( Engine.is_editor_hint() ):
+		return;
+	
+	if ( !_camera_focus.is_node_ready() ):
+		await _camera_focus.ready;
+	_camera_offset = _camera_focus.position;
+
 func _enter_state() -> void:
 	Radio.grab_camera( _camera_focus );
 
@@ -14,7 +27,7 @@ func _leave_state() -> void:
 	_camera_focus.position = Vector2.ZERO;
 
 func _process( _delta: float ) -> void:
-	_camera_focus.position = _character.velocity * 0.1;
+	_camera_focus.position = _camera_offset + _character.velocity * 0.1;
 
 func _physics_process( delta: float ) -> void:
 	

@@ -40,3 +40,4 @@ func routine_move_in_direction( delta: float, direction_vector: Vector2 ) -> voi
 		velocity = velocity.move_toward( moving_target, moving_delta );
 	
 	move_and_slide();
+	global_position = global_position.ceil();

@@ -12,6 +12,7 @@
 [ext_resource type="Shape2D" uid="uid://1s75qsuf4vgs" path="res://GameWorld/Overworld/Player/player_collision_shape.tres" id="10_ayjw3"]
 
 [node name="ObjRoomTest" type="Node2D" unique_id=1329810023]
+y_sort_enabled = true
 script = ExtResource("1_p56kr")
 metadata/_custom_type_script = "uid://v1di0ylt65qv"
 
@@ -50,7 +51,6 @@ _is_physics = true
 metadata/_custom_type_script = "uid://s00qhgf67e7q"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1170710995]
-physics_interpolation_mode = 2
 script = ExtResource("7_oxh41")
 metadata/_custom_type_script = "uid://cvwcr085y3gex"
 

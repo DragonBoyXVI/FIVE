@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://rxooh05v6k8s"]
+
+[ext_resource type="Texture2D" uid="uid://b5ribwh1tf45n" path="res://XVI-Godot-Assets/Images/Characters/brick.png" id="1_nior2"]
+
+[node name="BrickTestModel" type="Node2D" unique_id=2110825168]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=187838853]
+visible = false
+modulate = Color(1, 1, 1, 0.39215687)
+texture = ExtResource("1_nior2")
+region_enabled = true
+region_rect = Rect2(0, 0, 223, 215)
+
+[node name="Root" type="Node2D" parent="." unique_id=2067890854]
+position = Vector2(0, -43)
+
+[node name="LegLeft" type="Sprite2D" parent="Root" unique_id=1750362852]
+position = Vector2(6, -7)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_nior2")
+offset = Vector2(-0.5, 26.5)
+region_enabled = true
+region_rect = Rect2(97, 75, 25, 59)
+
+[node name="LegRight" type="Sprite2D" parent="Root" unique_id=1825137023]
+position = Vector2(-5, -7)
+texture = ExtResource("1_nior2")
+offset = Vector2(-0.5, 26.5)
+region_enabled = true
+region_rect = Rect2(97, 75, 25, 59)
+
+[node name="TorsoLow" type="Sprite2D" parent="Root" unique_id=450728658]
+texture = ExtResource("1_nior2")
+offset = Vector2(0, -9)
+region_enabled = true
+region_rect = Rect2(101, 141, 32, 28)
+
+[node name="TorsoHigh" type="Sprite2D" parent="Root/TorsoLow" unique_id=1582234145]
+position = Vector2(1, -14)
+texture = ExtResource("1_nior2")
+offset = Vector2(0, -18)
+region_enabled = true
+region_rect = Rect2(25, 141, 29, 40)
+
+[node name="Head" type="Sprite2D" parent="Root/TorsoLow/TorsoHigh" unique_id=818426385]
+position = Vector2(1, -31)
+texture = ExtResource("1_nior2")
+offset = Vector2(-6, -23.5)
+region_enabled = true
+region_rect = Rect2(57, 0, 88, 65)
+
+[node name="Eyes" type="Sprite2D" parent="Root/TorsoLow/TorsoHigh/Head" unique_id=479900744]
+position = Vector2(8, -17)
+texture = ExtResource("1_nior2")
+region_enabled = true
+region_rect = Rect2(147, 114, 34, 18)
+
+[node name="ArmLeft" type="Sprite2D" parent="Root/TorsoLow/TorsoHigh" unique_id=71835089]
+z_index = -1
+position = Vector2(8, -23)
+rotation = 3.1415927
+scale = Vector2(0.9, -0.9)
+texture = ExtResource("1_nior2")
+offset = Vector2(-5, 22.5)
+region_enabled = true
+region_rect = Rect2(147, 61, 17, 51)
+
+[node name="ArmRight" type="Sprite2D" parent="Root/TorsoLow/TorsoHigh" unique_id=906313901]
+z_index = 1
+position = Vector2(-6, -25)
+texture = ExtResource("1_nior2")
+offset = Vector2(-5, 22.5)
+region_enabled = true
+region_rect = Rect2(147, 61, 17, 51)
